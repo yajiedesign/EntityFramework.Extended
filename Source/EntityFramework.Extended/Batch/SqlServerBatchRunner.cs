@@ -395,17 +395,12 @@ namespace EntityFramework.Batch
             // create parameters
             foreach (var objectParameter in objectQuery.Parameters)
             {
-                var parameter = command.CreateParameter();
-                parameter.ParameterName = objectParameter.Name;
+             var parameter = command.CreateParameter();
+                 parameter.ParameterName = objectParameter.Name;
+                 parameter.Value = objectParameter.Value;
 
-                parameter.Value = objectParameter.Value;
-                parameter.Value = (objectParameter.Value == null)
-                    ? DBNull.Value
-                    : objectParameter.Value;
-
-
-                
-                command.Parameters.Add(parameter);
+ 
+                 command.Parameters.Add(parameter);
             }
 
             return innerJoinSql;
