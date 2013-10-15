@@ -15,5 +15,10 @@ namespace EntityFramework.Mapping
         /// Gets or sets the name of the property.
         /// </summary>
         string PropertyName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the column.
+        /// </summary>
+        string ColumnName { get; set; }
     }
 }

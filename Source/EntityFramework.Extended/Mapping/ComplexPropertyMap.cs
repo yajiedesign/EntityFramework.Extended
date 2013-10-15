@@ -11,12 +11,20 @@ namespace EntityFramework.Mapping
     /// </summary>
     public class ComplexPropertyMap: IPropertyMapElement
     {
-
+        /// <summary>
+        /// Gets or sets the name of the property.
+        /// </summary>
         public string PropertyName { get; set; }
 
         /// <summary>
         /// The enumeration of the complex' type 
         /// </summary>
         public ICollection<IPropertyMapElement> TypeElements { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the column.
+        /// </summary>
+        public string ColumnName { get; set; }
+  
     }
 }
