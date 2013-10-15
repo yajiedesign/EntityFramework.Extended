@@ -44,9 +44,8 @@
     <AssemblyOriginatorKeyFile>..\EntityFramework.Extended.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\src\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -86,6 +85,7 @@
     <Compile Include="Caching\Query\LocalCollectionExpander.cs" />
     <Compile Include="Caching\Query\QueryCache.cs" />
     <Compile Include="Caching\Query\Utility.cs" />
+    <Compile Include="Extensions\IQueryUnwrapper.cs" />
     <Compile Include="Extensions\QueryableExtensions.cs" />
     <Compile Include="Future\IFutureRunner.cs" />
     <Compile Include="Locator.cs" />
@@ -101,10 +101,12 @@
     <Compile Include="Extensions\BatchExtensions.cs" />
     <Compile Include="Extensions\ObjectContextExtensions.cs" />
     <Compile Include="IContainer.cs" />
+    <Compile Include="Mapping\ComplexPropertyMap.cs" />
     <Compile Include="Mapping\EntityMap.cs" />
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Extensions\ObjectQueryExtensions.cs" />
     <Compile Include="Mapping\IMappingProvider.cs" />
+    <Compile Include="Mapping\IPropertyMapElement.cs" />
     <Compile Include="Mapping\ReflectionMappingProvider.cs" />
     <Compile Include="Mapping\MappingResolver.cs" />
     <Compile Include="Mapping\PropertyMap.cs" />
