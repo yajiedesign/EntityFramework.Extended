@@ -191,56 +191,12 @@ namespace EntityFramework.Batch
                     }
                     else
                     {
-<<<<<<< HEAD
-                        // create clean objectset to build query from
-                        var objectSet = objectContext.CreateObjectSet<TEntity>();
-
-                        Type[] typeArguments = new[] { entityMap.EntityType, memberExpression.Type };
-
-                        ConstantExpression constantExpression = Expression.Constant(objectSet);
-                        LambdaExpression lambdaExpression = Expression.Lambda(memberExpression, parameterExpression);
-
-                        MethodCallExpression selectExpression = Expression.Call(
-                            typeof(Queryable),
-                            "Select",
-                            typeArguments,
-                            constantExpression,
-                            lambdaExpression);
-
-                        // create query from expression
-                        var selectQuery = objectSet.CreateQuery(selectExpression, entityMap.EntityType);
-                        string sql = selectQuery.ToTraceString();
-
-                        // parse select part of sql to use as update
-                        string regex = @"SELECT\s*\r\n(?<ColumnValue>.+)?\s*AS\s*(?<ColumnAlias>\[\w+\])\r\nFROM\s*(?<TableName>\[\w+\]\.\[\w+\]|\[\w+\])\s*AS\s*(?<TableAlias>\[\w+\])";
-                        Match match = Regex.Match(sql, regex);
-                        if (!match.Success)
-                            throw new ArgumentException("The MemberAssignment expression could not be processed.", "updateExpression");
-
-                        string value = match.Groups["ColumnValue"].Value;
-                        string alias = match.Groups["TableAlias"].Value;
-
-                        value = value.Replace(alias + ".", "");
-
-                        foreach (ObjectParameter objectParameter in selectQuery.Parameters)
-                        {
-                            string parameterName = "p__update__" + nameCount++;
-
-                            var parameter = updateCommand.CreateParameter();
-                            parameter.ParameterName = parameterName;
-                            
-                            // set the parameter value, ensure null values are replaced with DBNull.Value
-                            parameter.Value = objectParameter.Value ?? (object)DBNull.Value;
-                            
-                            updateCommand.Parameters.Add(parameter);
-                            
-                            value = value.Replace(objectParameter.Name, parameterName);
-                        }
-                        sqlBuilder.AppendFormat("[{0}] = {1}", columnName, value);
-=======
+//<<<<<<< HEAD
+                      
+//=======
                         AddUpdateRow<TEntity>(objectContext, entityMap, binding, sqlBuilder, updateCommand,
                                               entityMap.PropertyMaps, ref nameCount, ref wroteSet);
->>>>>>> 037c30c4c6a87e08606f9f680b60b63c8ca81da4
+//>>>>>>> 037c30c4c6a87e08606f9f680b60b63c8ca81da4
                     }
                 }
 

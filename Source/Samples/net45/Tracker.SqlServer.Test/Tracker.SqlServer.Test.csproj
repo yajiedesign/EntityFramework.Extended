@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\EntityFramework.Extended\EntityFramework.Extended.csproj">
-      <Project>{D390C235-242C-4E92-9E0B-D2463E87B0F0}</Project>
+      <Project>{d390c235-242c-4e92-9e0b-d2463e87b0f0}</Project>
       <Name>EntityFramework.Extended</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tracker.SqlServer.CodeFirst\Tracker.SqlServer.CodeFirst.csproj">
