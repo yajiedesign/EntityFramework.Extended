@@ -397,6 +397,13 @@ namespace EntityFramework.Batch
             {
                 var parameter = command.CreateParameter();
                 parameter.ParameterName = objectParameter.Name;
+<<<<<<< HEAD
+=======
+                parameter.Value = objectParameter.Value;
+                parameter.Value = (objectParameter.Value == null)
+                    ? DBNull.Value
+                    : objectParameter.Value;
+>>>>>>> cf015922ed5079b5bc0fced711c31b065c6e41c6
 
                 // set the parameter value, ensure null values are replaced with DBNull.Value
                 parameter.Value = objectParameter.Value ?? (object)DBNull.Value;
